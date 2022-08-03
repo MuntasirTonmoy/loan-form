@@ -47,17 +47,16 @@ const Form = () => {
       </div>
 
       {/* form */}
-      <div className=" lg:w-1/2 mx-auto shadow-md rounded-xl p-16 h-[70vh] relative">
+      <div className=" lg:w-1/2 mx-auto shadow-md  px-10 pt-5 pb-10">
         <div data-form-body>{PageDisplayed()}</div>
-        <div data-form-button className="absolute bottom-10 left-0 w-full">
-          <div className="flex justify-center gap-10">
-            <button className="px-16 py-2 flex justify-center gap-10  rounded-full bg-blue-100 text-blue border-[1.5px] border-blue-500 cursor-pointer">
-              Previous
-            </button>
-            <button className="px-20 py-2 rounded-full bg-green-500 text-white cursor-pointer">
-              Next
-            </button>
-          </div>
+
+        <div className="flex justify-center gap-10 mt-5">
+          <button className="px-16 py-2 flex justify-center gap-10  rounded-full  text-blue border-[1.5px] bg-blue-50 border-blue-500 cursor-pointer">
+            Previous
+          </button>
+          <button className="px-20 py-2 rounded-full bg-green-500 text-white cursor-pointer">
+            Next
+          </button>
         </div>
       </div>
     </>
