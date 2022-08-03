@@ -1,35 +1,43 @@
 import React from "react";
 import { BsChevronDown } from "react-icons/bs";
 
-const BusinessDetails = () => {
+const BusinessDetails = ({ formData, setFormData }) => {
   return (
     <div className="grid grid-cols-2 gap-x-10 gap-y-3">
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="businessname"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="businessname"
         >
           Business Name
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="businessname"
           type="text"
           placeholder="Business name"
+          onChange={(e) =>
+            setFormData({ ...formData, businessName: e.target.value })
+          }
+          defaultValue={formData?.businessName}
         />
       </div>
-      <div class="mb-4 relative">
+      <div className="mb-4 relative">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="businesstype"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="businesstype"
         >
           Business Type
         </label>
         <select
-          class="form-select shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="form-select shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="businesstype"
+          onChange={(e) =>
+            setFormData({ ...formData, businessType: e.target.value })
+          }
+          defaultValue={formData?.businessType}
         >
-          <option selected>Business Type</option>
+          <option>Business Type</option>
           <option value="salaried">Salaried</option>
           <option value="selfEmployedProfessional">
             Self Employed Professional
@@ -40,74 +48,92 @@ const BusinessDetails = () => {
         </select>
         <BsChevronDown className="absolute top-10 right-3 text-md" />
       </div>
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="gstno"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="gstno"
         >
           GST No.
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="gstno"
           type="text"
           placeholder="Gst no."
+          onChange={(e) => setFormData({ ...formData, gstno: e.target.value })}
+          defaultValue={formData?.gstno}
         />
       </div>
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="telephone"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="telephone"
         >
           Telephone No.
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="telephone"
           type="tel"
           placeholder="Telephone no."
+          onChange={(e) =>
+            setFormData({ ...formData, telephone: e.target.value })
+          }
+          defaultValue={formData?.telephone}
         />
       </div>
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="regno"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="regno"
         >
           Registration No.
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="regno"
           type="text"
           placeholder="Registration no."
+          onChange={(e) =>
+            setFormData({ ...formData, registration: e.target.value })
+          }
+          defaultValue={formData?.registration}
         />
       </div>
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="email"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="email"
         >
           Email
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="email"
           type="businessemail"
           placeholder="Business email"
+          onChange={(e) =>
+            setFormData({ ...formData, businessEmail: e.target.value })
+          }
+          defaultValue={formData?.businessEmail}
         />
       </div>
-      <div class="mb-4 col-span-2">
+      <div className="mb-4 col-span-2">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="officeaddress"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="officeaddress"
         >
           Office Adress
         </label>
         <textarea
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="officeaddress"
           type="address"
           placeholder="Office address"
+          onChange={(e) =>
+            setFormData({ ...formData, officeAddress: e.target.value })
+          }
+          defaultValue={formData?.officeAddress}
         />
       </div>
     </div>

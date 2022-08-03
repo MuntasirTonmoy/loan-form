@@ -5,15 +5,44 @@ import PersonalDetails from "../FormComponents/PersonalDetails";
 
 const Form = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    gender: "",
+    age: "",
+    dob: "",
+    phone: "",
+    email: "",
+    paddress: "",
+    businessName: "",
+    businessType: "",
+    gstno: "",
+    telephone: "",
+    registration: "",
+    businessEmail: "",
+    officeAddress: "",
+    loanAmount: "",
+    duration: "",
+    bankName: "",
+    bankAccNo: "",
+    interestRate: "",
+    loanTenure: "",
+    loanReason: "",
+  });
   const PageDisplayed = () => {
     if (currentPage === 0) {
-      return <PersonalDetails />;
+      return <PersonalDetails formData={formData} setFormData={setFormData} />;
     } else if (currentPage === 1) {
-      return <BusinessDetails />;
+      return <BusinessDetails formData={formData} setFormData={setFormData} />;
     } else {
-      return <LoanDetails />;
+      return <LoanDetails formData={formData} setFormData={setFormData} />;
     }
   };
+
+  const handleOnSubmit = (e) => {
+    const data = { ...formData };
+    console.log(data);
+  };
+
   return (
     <>
       {/* tab */}
@@ -35,6 +64,7 @@ const Form = () => {
           Business Details
         </button>
         <button
+          type={currentPage === 2 ? "submit" : "button"}
           onClick={() => setCurrentPage(2)}
           className={`rounded-full px-5 py-2 ${
             currentPage === 2 ? "bg-blue-500" : "bg-gray-500"
@@ -47,18 +77,34 @@ const Form = () => {
       </div>
 
       {/* form */}
-      <div className=" lg:w-1/2 mx-auto shadow-md  px-10 pt-5 pb-10">
+      <form className=" lg:w-1/2 mx-auto shadow-md  px-10 pt-5 pb-10">
         <div data-form-body>{PageDisplayed()}</div>
 
         <div className="flex justify-center gap-10 mt-5">
-          <button className="px-16 py-2 flex justify-center gap-10  rounded-full  text-blue border-[1.5px] bg-blue-50 border-blue-500 cursor-pointer">
+          <button
+            disabled={currentPage === 0}
+            type="button"
+            onClick={() => setCurrentPage((page) => page - 1)}
+            className={`px-14 py-2 flex justify-center gap-10  rounded-full  text-blue border-[1.5px] bg-blue-50 border-blue-500 cursor-pointer font-bold active:scale-[0.98] transition duration-200 ease-in-out disabled:opacity-[0.3] disabled:bg-gray-400 disabled:cursor-default disabled:border-0`}
+          >
             Previous
           </button>
-          <button className="px-20 py-2 rounded-full bg-green-500 text-white cursor-pointer">
-            Next
+
+          <button
+            type="button"
+            onClick={() => {
+              if (currentPage === 2) {
+                handleOnSubmit();
+              } else {
+                setCurrentPage((page) => page + 1);
+              }
+            }}
+            className="px-16 py-2 rounded-full bg-green-500 text-white cursor-pointer font-bold active:scale-[0.98] transition duration-200 ease-in-out"
+          >
+            {currentPage === 2 ? "Submit" : "Next"}
           </button>
         </div>
-      </div>
+      </form>
     </>
   );
 };

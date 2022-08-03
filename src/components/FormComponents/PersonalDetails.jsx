@@ -1,32 +1,38 @@
 import React from "react";
 import { BsChevronDown } from "react-icons/bs";
 
-const PersonalDetails = () => {
+const PersonalDetails = ({ formData, setFormData }) => {
   return (
     <div className="grid grid-cols-2 gap-x-10 gap-y-3">
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="firstname"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="firstname"
         >
           Full Name
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="firstname"
           type="text"
           placeholder="Name"
+          onChange={(e) =>
+            setFormData({ ...formData, fullName: e.target.value })
+          }
+          defaultValue={formData?.fullName}
         />
       </div>
-      <div class="mb-4 relative">
+      <div className="mb-4 relative">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="gender"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="gender"
         >
           Gender
         </label>
         <select
-          class="form-select shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+          defaultValue={formData?.gender}
+          className="form-select shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="gender"
         >
           <option>Gender</option>
@@ -36,74 +42,86 @@ const PersonalDetails = () => {
         </select>
         <BsChevronDown className="absolute top-10 right-3 text-md" />
       </div>
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="age"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="age"
         >
           Age
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="age"
           type="number"
           min={18}
           placeholder="Age"
+          onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+          defaultValue={formData?.age}
         />
       </div>
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="dob"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="dob"
         >
           Date of Birth
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="dob"
           type="date"
+          onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
+          defaultValue={formData?.dob}
         />
       </div>
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="phone"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="phone"
         >
           Phone No.
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="phone"
           type="tel"
           placeholder="Phone no."
+          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          defaultValue={formData?.phone}
         />
       </div>
-      <div class="mb-4">
+      <div className="mb-4">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="email"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="email"
         >
           Email
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="email"
           type="email"
           placeholder="Email"
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          defaultValue={formData?.email}
         />
       </div>
-      <div class="mb-4 col-span-2">
+      <div className="mb-4 col-span-2">
         <label
-          class="block text-gray-700 text-sm font-bold mb-2 ml-1"
-          for="address"
+          className="block text-gray-700 text-sm font-bold mb-2 ml-1"
+          htmlFor="address"
         >
           Permanent Address
         </label>
         <textarea
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-1 focus:outline-blue-400"
           id="address"
           type="address"
-          placeholder="Address"
+          placeholder="Permanent Address"
+          onChange={(e) =>
+            setFormData({ ...formData, paddress: e.target.value })
+          }
+          defaultValue={formData?.paddress}
         />
       </div>
     </div>
