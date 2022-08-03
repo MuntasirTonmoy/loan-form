@@ -14,7 +14,8 @@ const ShowData = () => {
         Form Data
       </h1>
       <p className="my-2 text-red-500 ml-4">
-        *This data is fetching from MongoDB only for showing purpose
+        *This data is fetching from MongoDB only for showing purpose.{" "}
+        <b>Please Refresh if the data isn't loading first time.</b>
       </p>
       {userData.map((user, index) => (
         <div className="px-4" key={index}>
