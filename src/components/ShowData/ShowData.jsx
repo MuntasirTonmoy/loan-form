@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const ShowData = () => {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/data")
+    fetch("https://glacial-harbor-64434.herokuapp.com/data")
       .then((res) => res.json())
       .then((data) => setUserData(data));
   }, []);

@@ -49,7 +49,7 @@ const Form = () => {
 
   const handleOnSubmit = (e) => {
     const data = { ...formData };
-    fetch(`http://localhost:5000/data`, {
+    fetch(`https://glacial-harbor-64434.herokuapp.com/data`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
