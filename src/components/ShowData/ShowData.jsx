@@ -13,11 +13,11 @@ const ShowData = () => {
       <h1 className="text-2xl font-bold text-center py-5 mb-7 border-b-[1.5px] border-gray-500">
         Form Data
       </h1>
+      <p className="my-2 text-red-500 ml-4">
+        *This data is fetching from MongoDB only for showing purpose
+      </p>
       {userData.map((user, index) => (
         <div className="px-4" key={index}>
-          <p className="my-2 text-red-500">
-            *This data is fetching from MongoDB only for showing purpose
-          </p>
           <h2 className="text-xl font-bold my-2"> Personal Details</h2>
           <ul className="list-none">
             <li>Full Name: {user.fullName}</li>
@@ -48,6 +48,7 @@ const ShowData = () => {
             <li>Loan Tenure: {user.loanTenure}</li>
             <li>Loan Reason: {user.loanReason}</li>
           </ul>
+          <hr className="my-5" />
         </div>
       ))}
     </div>

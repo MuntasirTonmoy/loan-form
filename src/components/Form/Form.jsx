@@ -58,7 +58,7 @@ const Form = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.acacknowledged === true) {
+        if (data) {
           setSuccess(true);
         }
       });
